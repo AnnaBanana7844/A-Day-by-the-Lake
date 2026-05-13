@@ -17,6 +17,7 @@ public class SceneChanger : MonoBehaviour
         Debug.Log("Exiting Game!!!!!");
 
         #if UNITY_EDITOR
+
             UnityEditor.EditorApplication.isPlaying = false;
 
         #else
