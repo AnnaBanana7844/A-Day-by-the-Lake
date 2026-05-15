@@ -15,6 +15,14 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
+    public void reactivatePrompt()
+    {
+        if(playerInRange)
+        {
+            pressEPrompt.SetActive(true);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
