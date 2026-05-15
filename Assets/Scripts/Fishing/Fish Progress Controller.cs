@@ -65,6 +65,10 @@ public class FishProgressController : MonoBehaviour
         {
             fishCaught();
         }
+        else
+        {
+            triggerNextSkillCheck();
+        }
     }
 
     public void skillCheckFail()
@@ -77,6 +81,10 @@ public class FishProgressController : MonoBehaviour
         if (progressBar.value <= 0)
         {
             fishEscaped();
+        }
+        else
+        {
+            triggerNextSkillCheck();
         }
     }
 
@@ -112,6 +120,8 @@ public class FishProgressController : MonoBehaviour
         if (player.pressEPrompt != null)
             player.pressEPrompt.SetActive(true);
 
+        skillCheck.stopSkillCheck();
+
         StartCoroutine(hideCaughtUI());
     }
 
@@ -128,6 +138,8 @@ public class FishProgressController : MonoBehaviour
 
         if (player.pressEPrompt != null)
             player.pressEPrompt.SetActive(true);
+
+        skillCheck.stopSkillCheck();
 
         StartCoroutine(hideCaughtUI());
     }
