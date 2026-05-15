@@ -50,6 +50,8 @@ public class SkillCheckController : MonoBehaviour
 
     private void checkHit()
     {
+        if (!activeFishing)
+            return;
         float pointerPos = Mathf.Repeat(currentAngle, 360f);
         float zonePos = Mathf.Repeat(-successZone.localEulerAngles.z, 360f);
         float zoneSize = successZone.sizeDelta.x;
@@ -66,11 +68,16 @@ public class SkillCheckController : MonoBehaviour
             progressController.skillCheckFail();
             resetPointerSpeed();
         }
-        progressController.triggerNextSkillCheck();
     }
 
     public void resetPointerSpeed()
     {
         currentPointerSpeed = basePointerSpeed;
+    }
+
+    public void stopSkillCheck()
+    {
+        // Debug.Log("Stop SkillCheck");
+        activeFishing = false;
     }
 }
