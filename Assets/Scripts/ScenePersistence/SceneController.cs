@@ -5,7 +5,6 @@ public class SceneChanger : MonoBehaviour
 {
 
     public string SceneToLoad;
-    public bool isPLaying;
 
     public void changeSceneNow()
     {
@@ -25,6 +24,5 @@ public class SceneChanger : MonoBehaviour
 
         #endif
     }
-
 
 }
