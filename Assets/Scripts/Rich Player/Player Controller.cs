@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static bool uiOpen = false;
+
     [SerializeField] CharacterController controller;
     [SerializeField] LayerMask ignoreLayer;
 
@@ -32,6 +34,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (GetComponent<PlayerFishingController>().isFishing)
+        {
+            return;
+        }
+        if(uiOpen)
         {
             return;
         }

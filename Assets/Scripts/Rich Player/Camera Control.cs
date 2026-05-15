@@ -7,6 +7,8 @@ public class CameraControl : MonoBehaviour
     [SerializeField] bool invertY;
     [SerializeField] Transform player;
 
+    public static bool uiOpen = false;
+
     float camRotX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +21,9 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(uiOpen)
+            return;
+
         float mouseX = Input.GetAxisRaw("Mouse X") * sens * Time.deltaTime;
         float mouseY = Input.GetAxisRaw("Mouse Y") * sens * Time.deltaTime;
 
