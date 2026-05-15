@@ -1,10 +1,34 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class NPCDialogue : MonoBehaviour
 {
+    public NPCInteraction npcInteraction;
+    
     public GameObject dialoguePanel;
     public GameObject shopPanel;
     public NPCShop shop;
+    public GameObject dialogueOptionsPanel;
+    public GameObject textBoxPanel;
+    public TMP_Text dialogueText;
+
+    private bool isTyping = false;
+    private string fullText;
+    private Coroutine typingCoroutine;
+
+
+    void Update()
+    {
+        if(!textBoxPanel.activeSelf)
+        {
+            return;
+        }
+        if(textBoxPanel.activeSelf && Input.GetKeyUp(KeyCode.Space))
+        {
+            onSkip();
+        }
+    }
     public void openDialogue()
     {
         dialoguePanel.SetActive(true);
@@ -20,17 +44,21 @@ public class NPCDialogue : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         shopPanel.SetActive(false);
+        dialogueOptionsPanel.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         CameraControl.uiOpen = false;
         PlayerController.uiOpen = false;
+
+        npcInteraction.reactivatePrompt();
     }
 
     public void onTalkButton()
     {
-        Debug.Log("NPC: Hello");
+        dialoguePanel.SetActive(false);
+        dialogueOptionsPanel.SetActive(true);
     }
 
     public void onShopButton()
@@ -40,8 +68,78 @@ public class NPCDialogue : MonoBehaviour
         shop.openShop();
     }
 
+    public void onBack()
+    {
+        dialoguePanel.SetActive(true);
+        dialogueOptionsPanel.SetActive(false);
+        shopPanel.SetActive(false);
+    }
+
     public void onLeaveButton()
     {
         closeAll();
+    }
+
+    public void onDialogue1()
+    {
+        showDialogue("I am nothing but a capsule in this empty world. My name is NPC and one day my creator will make me look beautiful!");
+    }
+    public void onDialogue2()
+    {
+        showDialogue("Well, right now theres not much to do around here...   but if you want to try out our fishing minigame go stand on that platform behind you. I would try it but I dont have hands, or a face, or anything.");
+    }
+
+    public void onContinue()
+    {
+        textBoxPanel.SetActive(false);
+        dialogueOptionsPanel.SetActive(true);
+    }
+
+    public void showDialogue(string text)
+    {
+        dialogueOptionsPanel.SetActive(false);
+        textBoxPanel.SetActive(true);
+
+        fullText = text;
+
+        if(typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        typingCoroutine = StartCoroutine(TypeText(text));
+    }
+
+    IEnumerator TypeText(string text)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+
+        foreach(char c in text)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(0.05f);
+
+            if(!isTyping)
+            {
+                dialogueText.text = fullText;
+                yield break;
+            }
+        }
+
+        isTyping = false;
+    }
+    public void onSkip()
+    {
+        if(isTyping)
+        {
+            isTyping = false;
+            dialogueText.text = fullText;
+        }
+        else
+        {
+            textBoxPanel.SetActive(false);
+            dialogueOptionsPanel.SetActive(true);
+        }
     }
 }
