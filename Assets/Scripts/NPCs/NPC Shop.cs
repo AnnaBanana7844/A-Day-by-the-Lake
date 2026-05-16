@@ -6,7 +6,7 @@ public class NPCShop : MonoBehaviour
 
     public void openShop()
     {
-        Debug.Log("Shop Open");
+        // Shop
     }
 
 
