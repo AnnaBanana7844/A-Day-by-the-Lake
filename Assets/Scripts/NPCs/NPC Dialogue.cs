@@ -13,6 +13,9 @@ public class NPCDialogue : MonoBehaviour
     public GameObject textBoxPanel;
     public TMP_Text dialogueText;
 
+    public AudioSource audioSource;
+    public AudioClip[] typingSounds;
+
     private bool isTyping = false;
     private string fullText;
     private Coroutine typingCoroutine;
@@ -86,13 +89,12 @@ public class NPCDialogue : MonoBehaviour
     }
     public void onDialogue2()
     {
-        showDialogue("Well, right now theres not much to do around here...   but if you want to try out our fishing minigame go stand on that platform behind you. I would try it but I dont have hands, or a face, or anything.");
+        showDialogue("Well, right now theres not much to do around here...      but if you want to try out our fishing minigame go stand on that platform behind you. I would try it but I dont have hands, or a face, or anything.");
     }
 
-    public void onContinue()
+    public void onDialogue3()
     {
-        textBoxPanel.SetActive(false);
-        dialogueOptionsPanel.SetActive(true);
+        showDialogue("Oh...      that cube? Its a way to die. I've heard rumors that whoever touches it suffers a gruesome death.");
     }
 
     public void showDialogue(string text)
@@ -118,6 +120,12 @@ public class NPCDialogue : MonoBehaviour
         foreach(char c in text)
         {
             dialogueText.text += c;
+
+            if(char.IsLetterOrDigit(c))
+            {
+                playTypingSound();
+            }
+
             yield return new WaitForSeconds(0.05f);
 
             if(!isTyping)
@@ -141,5 +149,13 @@ public class NPCDialogue : MonoBehaviour
             textBoxPanel.SetActive(false);
             dialogueOptionsPanel.SetActive(true);
         }
+    }
+
+    public void playTypingSound()
+    {
+        if (typingSounds.Length == 0) return;
+
+        int index = Random.Range(0,typingSounds.Length);
+        audioSource.PlayOneShot(typingSounds[index], 1f);
     }
 }

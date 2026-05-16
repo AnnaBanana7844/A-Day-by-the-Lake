@@ -18,11 +18,10 @@ public class PlayerController : MonoBehaviour
     int jumpCount;
     int HPOrig;
     
-
-    
-
     Vector3 moveDir;
     Vector3 playerVel;
+
+    public PlayerDeath deathUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -74,5 +73,20 @@ public class PlayerController : MonoBehaviour
             playerVel.y = jumpSpeed;
             jumpCount++;
         }
+    }
+
+    public void takeDamage(int amount)
+    {
+        HP -= amount;
+        if(HP <= 0)
+        {
+            die();
+        }
+    }
+
+    void die()
+    {
+        uiOpen = true;
+        deathUI.showDeathScreen();
     }
 }
