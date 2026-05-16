@@ -92,6 +92,11 @@ public class NPCDialogue : MonoBehaviour
         showDialogue("Well, right now theres not much to do around here...      but if you want to try out our fishing minigame go stand on that platform behind you. I would try it but I dont have hands, or a face, or anything.");
     }
 
+    public void onDialogue3()
+    {
+        showDialogue("Oh...      that cube? Its a way to die. I've heard rumors that whoever touches it suffers a gruesome death.");
+    }
+
     public void showDialogue(string text)
     {
         dialogueOptionsPanel.SetActive(false);
