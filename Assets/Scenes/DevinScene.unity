@@ -1255,7 +1255,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943674088}
-  - component: {fileID: 1943674087}
   - component: {fileID: 1943674089}
   m_Layer: 0
   m_Name: GameManager
@@ -1264,27 +1263,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1943674087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1943674086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc9ad93c13b33d449ace086e9901a4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  player: {fileID: 1440682566}
-  bear: {fileID: 181115066}
-  menuMusic: {fileID: 0}
-  dayMusic: {fileID: 0}
-  nightMusic: {fileID: 0}
-  dayTimer: 0
-  nightTimer: 0
-  cycleTimer: 0
-  tutorialActive: 0
 --- !u!4 &1943674088
 Transform:
   m_ObjectHideFlags: 0
@@ -1309,7 +1287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1943674086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259650d63888d10469349f6888f1e045, type: 3}
+  m_Script: {fileID: 11500000, guid: abf34e9a370de904a8296c400e4e0cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentCtrl
   player: {fileID: 1440682566}
