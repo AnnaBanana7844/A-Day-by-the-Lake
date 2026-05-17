@@ -32,7 +32,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<PlayerFishingController>().isFishing)
+
+        if (!GameManager.instance.isPaused)
+
+            if (GetComponent<PlayerFishingController>().isFishing)
         {
             return;
         }
