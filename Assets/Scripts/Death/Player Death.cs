@@ -1,24 +1,20 @@
+using JetBrains.Annotations;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour
 {
     public GameObject deathPanel;
-    public DeathFade fader;
+    public GameObject backGround;
 
     public AudioSource audioSource;
     public AudioClip[] deathSounds;
 
     public void showDeathScreen()
     {
-        StartCoroutine(DeathSequence());
-    }
-
-    public void onRestartButton()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        PlayerController.uiOpen = false;
+        deathSequence();
     }
 
     public void onMainMenuButton()
@@ -26,13 +22,12 @@ public class PlayerDeath : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-        IEnumerator DeathSequence()
+        public void deathSequence()
     {
         playRandomDeathSound();
+        GameManager.instance.youLose();
 
-        yield return StartCoroutine(fader.FadeToBlack(1.5f));
-
-        deathPanel.SetActive(true);
+     
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
