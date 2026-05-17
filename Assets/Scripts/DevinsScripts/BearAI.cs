@@ -73,7 +73,7 @@ public class Bear : MonoBehaviour
         }
         if (onCooldown == false)
         {
-            GameManager.Game.player.AlterHealth(-attackDamage);
+            EnvironmentManager.Game.player.AlterHealth(-attackDamage);
             StartCoroutine(AttackCooldownRoutine());
         }
     }
