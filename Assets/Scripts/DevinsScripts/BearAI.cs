@@ -38,14 +38,17 @@ public class Bear : MonoBehaviour
         DetectPlayer();
         if (visiblePlayer && playerInRange)
         {
+            Debug.Log("Player seen and in range!");
             Attack();
         }
         else if (!visiblePlayer && !playerInRange)
         {
+            Debug.Log("Player not seen and not in range!");
             Roam();
         }
         else if (visiblePlayer && !playerInRange)
         {
+            Debug.Log("Player seen and not in range!");
             Pursue();
         }
     }
@@ -66,14 +69,15 @@ public class Bear : MonoBehaviour
 
     void Attack()
     {
+        Debug.Log("Bear Attacking!");
         meshAgent.SetDestination(transform.position);//stop
         if (playerTrans != null)
         {
             transform.LookAt(playerTrans.position);//face player. yet another helpful command!
         }
-        if (onCooldown == false)
+        if (onCooldown == false && playerInRange)
         {
-            EnvironmentManager.Game.player.AlterHealth(-attackDamage);
+            EnvironmentCtrl.Game.player.AlterHealth(-attackDamage);
             StartCoroutine(AttackCooldownRoutine());
         }
     }
