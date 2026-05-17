@@ -83,13 +83,8 @@ public class PlayerController : MonoBehaviour
         HP -= amount;
         if(HP <= 0)
         {
-            die();
+            deathUI.playRandomDeathSound();
+            GameManager.instance.youLose();
         }
-    }
-
-    void die()
-    {
-        uiOpen = true;
-        deathUI.showDeathScreen();
     }
 }
