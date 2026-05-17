@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class EnvironmentManager : MonoBehaviour
+public class EnvironmentCtrl : MonoBehaviour
 {
-    public static EnvironmentManager Game;//game manager singleton
+    public static EnvironmentCtrl Game;//game manager singleton
     [SerializeField] public Player player;
-    [SerializeField] public Bear bear;//the bear is subjective.
+    [SerializeField] public Bear bear;
 
     [Header("-----Music-----")]
     [SerializeField] AudioSource menuMusic;//music that plays on specifically the main menu
