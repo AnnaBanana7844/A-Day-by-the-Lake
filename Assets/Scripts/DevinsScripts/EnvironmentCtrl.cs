@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class EnvironmentCtrl : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class EnvironmentCtrl : MonoBehaviour
             cycleTimer += Time.deltaTime;
             DayNightCycle();
         }
+        //Debug.Log(cycleTimer);
     }
 
     void DayNightCycle()
@@ -52,6 +54,7 @@ public class EnvironmentCtrl : MonoBehaviour
         //every time the timer reaches the correct integer in seconds(nightTimer if its night, opposite if day), switch the active day
         if (cycleTimer == dayTimer && DON == true)//if it's currently day and the daytime has ended
         {
+            //Debug.Log("Night");
             //when day is over
             //we want night music to play
             //we also want to change the skybox
@@ -59,6 +62,7 @@ public class EnvironmentCtrl : MonoBehaviour
         }
         if (cycleTimer == nightTimer && DON == false)//if it's currently night and if the nighttime has ended
         {
+            //Debug.Log("Day");
             //when night is over
             //we want day music to play
             //we also want to change the skybox back
