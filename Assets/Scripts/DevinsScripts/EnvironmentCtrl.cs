@@ -25,9 +25,7 @@ public class EnvironmentCtrl : MonoBehaviour
         //maybe tutorial can be a button? and there can be a complete tutorial button to trigger the start of the day night cycle
         Game = this;
         //DON = true;
-        currentMusic = menuMusic;
-        currentMusic.Play();
-        DON = true;
+        DayActive();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +42,10 @@ public class EnvironmentCtrl : MonoBehaviour
             cycleTimer += Time.deltaTime;
             DayNightCycle();
         }
+        if (Input.GetButtonUp("Cancel"))
+        {
+            MenuActive();
+        }
         //Debug.Log(cycleTimer);
     }
 
@@ -52,7 +54,7 @@ public class EnvironmentCtrl : MonoBehaviour
         
         //run a timer that starts on day
         //every time the timer reaches the correct integer in seconds(nightTimer if its night, opposite if day), switch the active day
-        if (cycleTimer == dayTimer && DON == true)//if it's currently day and the daytime has ended
+        if ((int)cycleTimer == dayTimer && DON == true)//if it's currently day and the daytime has ended
         {
             //Debug.Log("Night");
             //when day is over
@@ -60,7 +62,7 @@ public class EnvironmentCtrl : MonoBehaviour
             //we also want to change the skybox
             NightActive();
         }
-        if (cycleTimer == nightTimer && DON == false)//if it's currently night and if the nighttime has ended
+        if ((int)cycleTimer == nightTimer && DON == false)//if it's currently night and if the nighttime has ended
         {
             //Debug.Log("Day");
             //when night is over
@@ -73,7 +75,9 @@ public class EnvironmentCtrl : MonoBehaviour
     {
         Debug.Log("Day Active");
         cycleTimer = 0;
+        if(currentMusic!=null){ currentMusic.Stop(); }
         currentMusic = dayMusic;
+        currentMusic.Play();
         DON = true;
     }
 
@@ -81,11 +85,15 @@ public class EnvironmentCtrl : MonoBehaviour
     {
         Debug.Log("Night Active");
         cycleTimer = 0;
+        if (currentMusic != null) { currentMusic.Stop(); }
         currentMusic = nightMusic;
+        currentMusic.Play();
         DON = false;
     }
     public void MenuActive()
     {
-        menuMusic.Play();
+        if (currentMusic != null) { currentMusic.Stop(); }
+        currentMusic = menuMusic;
+        currentMusic.Play();
     }
 }
