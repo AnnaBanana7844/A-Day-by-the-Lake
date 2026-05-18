@@ -38,17 +38,17 @@ public class Bear : MonoBehaviour
         DetectPlayer();
         if (visiblePlayer && playerInRange)
         {
-            Debug.Log("Player seen and in range!");
+            //Debug.Log("Player seen and in range!");
             Attack();
         }
         else if (!visiblePlayer && !playerInRange)
         {
-            Debug.Log("Player not seen and not in range!");
+            //Debug.Log("Player not seen and not in range!");
             Roam();
         }
         else if (visiblePlayer && !playerInRange)
         {
-            Debug.Log("Player seen and not in range!");
+            //Debug.Log("Player seen and not in range!");
             Pursue();
         }
     }
@@ -69,7 +69,7 @@ public class Bear : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log("Bear Attacking!");
+        //Debug.Log("Bear Attacking!");
         meshAgent.SetDestination(transform.position);//stop
         if (playerTrans != null)
         {
