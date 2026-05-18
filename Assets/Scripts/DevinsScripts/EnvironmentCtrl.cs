@@ -12,7 +12,6 @@ public class EnvironmentCtrl : MonoBehaviour
     [SerializeField] AudioSource dayMusic;//music that loops during the day
     [SerializeField] AudioSource nightMusic;//music that loops at night
     AudioSource currentMusic;
-    
 
     [Header("-----Timers-----")]
     [SerializeField] int dayTimer;
@@ -25,15 +24,13 @@ public class EnvironmentCtrl : MonoBehaviour
     {
         //maybe tutorial can be a button? and there can be a complete tutorial button to trigger the start of the day night cycle
         Game = this;
-        DON = true;
-        //currentMusic = menuMusic;
-        //currentMusic.Play();
+        //DON = true;
+        DayActive();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        cycleTimer = 0;
-        DayActive();
+        
     }
 
     // Update is called once per frame
@@ -41,22 +38,23 @@ public class EnvironmentCtrl : MonoBehaviour
     {
         if (tutorialActive == false)//time only passes if the tutorial is done
         {
+            Debug.Log("updating");
             cycleTimer += Time.deltaTime;
             DayNightCycle();
+        }
+        if (Input.GetButtonUp("Cancel"))
+        {
+            MenuActive();
         }
         //Debug.Log(cycleTimer);
     }
 
     void DayNightCycle()
     {
-        //Debug.Log("Cycling");
+        
         //run a timer that starts on day
         //every time the timer reaches the correct integer in seconds(nightTimer if its night, opposite if day), switch the active day
-        //if((int)cycleTimer == dayTimer || cycleTimer == nightTimer)
-        //{
-        //    Debug.Log("Time Ticking");
-        //}
-        if ((int)cycleTimer == dayTimer && DON == true)//if its currently day the daytime has ended
+        if ((int)cycleTimer == dayTimer && DON == true)//if it's currently day and the daytime has ended
         {
             //Debug.Log("Night");
             //when day is over
@@ -64,7 +62,7 @@ public class EnvironmentCtrl : MonoBehaviour
             //we also want to change the skybox
             NightActive();
         }
-        else if ((int)cycleTimer == nightTimer && DON == false)//if its currently night the nighttime has ended
+        if ((int)cycleTimer == nightTimer && DON == false)//if it's currently night and if the nighttime has ended
         {
             //Debug.Log("Day");
             //when night is over
@@ -75,25 +73,27 @@ public class EnvironmentCtrl : MonoBehaviour
     }
     public void DayActive()
     {
-        //Debug.Log("cycle changing");
+        Debug.Log("Day Active");
         cycleTimer = 0;
-        if (currentMusic != null) { currentMusic.Stop(); }
+        if(currentMusic!=null){ currentMusic.Stop(); }
         currentMusic = dayMusic;
         currentMusic.Play();
-        DON = !DON;
+        DON = true;
     }
 
     public void NightActive()
     {
-        //Debug.Log("cycle changing");
+        Debug.Log("Night Active");
         cycleTimer = 0;
-        if(currentMusic!=null){ currentMusic.Stop(); }
+        if (currentMusic != null) { currentMusic.Stop(); }
         currentMusic = nightMusic;
         currentMusic.Play();
-        DON = !DON;
+        DON = false;
     }
     public void MenuActive()
     {
-        menuMusic.Play();
+        if (currentMusic != null) { currentMusic.Stop(); }
+        currentMusic = menuMusic;
+        currentMusic.Play();
     }
 }
