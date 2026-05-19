@@ -6,10 +6,10 @@ public class Damage : MonoBehaviour
     public int damageAmount;
 
 
-    public PlayerController playerController;
+    public Player playerController;
 
     private void OnTriggerEnter(Collider other)
     {
-        playerController.takeDamage(damageAmount);
+        playerController.AlterHealth(damageAmount);
     }
 }
