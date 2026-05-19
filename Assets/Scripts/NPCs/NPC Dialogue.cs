@@ -39,8 +39,8 @@ public class NPCDialogue : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        CameraControl.uiOpen = true;
-        PlayerController.uiOpen = true;
+        cameraController.uiOpen = true;
+        Player.uiOpen = true;
     }
 
     public void closeAll()
@@ -52,8 +52,8 @@ public class NPCDialogue : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        CameraControl.uiOpen = false;
-        PlayerController.uiOpen = false;
+        cameraController.uiOpen = false;
+        Player.uiOpen = false;
 
         npcInteraction.reactivatePrompt();
     }
@@ -95,6 +95,10 @@ public class NPCDialogue : MonoBehaviour
     public void onDialogue3()
     {
         showDialogue("Oh...      that cube? Its a way to die. I've heard rumors that whoever touches it suffers a gruesome death.");
+    }
+    public void onDialogue4()
+    {
+        showDialogue("The brown thing over? Thats the bear right now. If you dont want to die by walking into a cube, you can go get mauled by the bear instead!");
     }
 
     public void showDialogue(string text)
