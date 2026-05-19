@@ -7,13 +7,28 @@ public class SettingsMenu : MonoBehaviour
 {
 
     // Settings Data Members
-    public TMP_Dropdown Graphics;
-    public Slider MasterVolume, MusicVolume, SFXVolume;
-    public AudioMixer SettingsMixer;
+   [SerializeField] public TMP_Dropdown Graphics;
+    [SerializeField] public Slider MasterVolume, MusicVolume, SFXVolume;
+    [SerializeField] public AudioMixer SettingsMixer;
 
-    //Fishing Sound Effects----R
+    private const string masterVolumeKey = "SavedMasterVolume";
+
+    //set minimum value for slider to dodge log0 errors
+    private float minMasterVolume = 0.0001f;
 
 
+    private void Start()
+    {
+        // Load saved values, defaulting to maximum volume (1.0) if no save exists
+        MasterVolume.value = PlayerPrefs.GetFloat("SavedMasterVolume", 1.0f);
+        MusicVolume.value = PlayerPrefs.GetFloat("SavedMusicVolume", 1.0f);
+        SFXVolume.value = PlayerPrefs.GetFloat("SavedSFXVolume", 1.0f);
+
+        // Force the mixer to update to the loaded values
+        ChangeMasterVolume();
+        ChangeMusicVolume();
+        ChangeSFXVolume();
+    }
 
 
     //Graphics Quality Dropdown---T
@@ -27,15 +42,26 @@ public class SettingsMenu : MonoBehaviour
     //Different volume Sliders----T
   public void ChangeMasterVolume()
     {
-        SettingsMixer.SetFloat("Master", MasterVolume.value); 
+        SetMixerVolume("Master", MasterVolume.value);
+        PlayerPrefs.SetFloat("SavedMasterVolume", MasterVolume.value);
     }
   public void ChangeMusicVolume()
     {
-        SettingsMixer.SetFloat("Music", MusicVolume.value); 
+        SetMixerVolume("Music", MasterVolume.value);
+        PlayerPrefs.SetFloat("SavedMUsicVolume", MusicVolume.value);
     }
   public void ChangeSFXVolume()
     {
-        SettingsMixer.SetFloat("SFX", SFXVolume.value); 
+        SetMixerVolume("SFX", MasterVolume.value);
+        PlayerPrefs.SetFloat("SavedSFXVolume", SFXVolume.value);
+    }
+
+
+    private void SetMixerVolume(string name, float value)
+    {
+        float dbValue = Mathf.Log10(Mathf.Max(value, minMasterVolume)) * 20f;
+        SettingsMixer.SetFloat(name, dbValue);
+
     }
 
 
