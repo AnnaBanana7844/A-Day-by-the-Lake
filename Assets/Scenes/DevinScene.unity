@@ -1463,8 +1463,8 @@ MonoBehaviour:
   menuMusic: {fileID: 1235606485}
   dayMusic: {fileID: 1923746941}
   nightMusic: {fileID: 1915297133}
-  dayTimer: 1
-  nightTimer: 1
+  dayTimer: 30
+  nightTimer: 30
 --- !u!1 &1998406585
 GameObject:
   m_ObjectHideFlags: 0
