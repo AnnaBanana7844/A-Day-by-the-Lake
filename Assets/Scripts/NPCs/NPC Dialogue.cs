@@ -39,7 +39,7 @@ public class NPCDialogue : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        cameraController.uiOpen = true;
+        cameraController.uiOpen = true; 
         Player.uiOpen = true;
     }
 

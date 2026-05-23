@@ -29,8 +29,8 @@ public class Player : MonoBehaviour
     Vector3 moveD;//the direction of player's movement.
     Vector3 playerV;//something about gravity???
     bool hasPole;//if this is false, player cannot activate fishing minigame, and instead is prompted to pull out their pole
-    public static bool uiOpen = false;
-    public PlayerDeath deathUI;
+    public static bool uiOpen;
+    public PlayerDeath DeathUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,13 +45,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (GetComponent<PlayerFishingController>().isFishing)
-        {
             return;
-        }
+
         if (uiOpen)
-        {
             return;
-        }
+
         Movement();
         Sprint();
     }
@@ -110,7 +108,7 @@ public class Player : MonoBehaviour
         if (hp <= 0)
         {
             Time.timeScale = 0;
-            deathUI.playRandomDeathSound();
+            DeathUI.playRandomDeathSound();
             GameManager.instance.youLose();
         }
     }
