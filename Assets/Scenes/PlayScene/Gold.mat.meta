@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Materials/Bear-_auto_.mat.meta
-guid: b3eb8bfb70debbe408f9427138b5685f
-========
 guid: 4267f018520a002408c5b0cf80377d8a
->>>>>>>> origin/Dev:Assets/Scenes/PlayScene/Gold.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

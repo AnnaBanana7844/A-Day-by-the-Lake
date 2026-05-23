@@ -44,6 +44,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<PlayerFishingController>().isFishing)
+            return;
+
+        if (uiOpen)
+            return;
+
         Movement();
         Sprint();
     }
@@ -102,8 +108,8 @@ public class Player : MonoBehaviour
         if (hp <= 0)
         {
             Time.timeScale = 0;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            DeathUI.playRandomDeathSound();
+            GameManager.instance.youLose();
         }
     }
     public void AlterFish(int value)//alters the health of the player
