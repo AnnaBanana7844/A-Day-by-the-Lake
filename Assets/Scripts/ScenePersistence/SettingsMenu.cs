@@ -20,9 +20,9 @@ public class SettingsMenu : MonoBehaviour
     private void Start()
     {
         // Load saved values, defaulting to maximum volume (1.0) if no save exists
-        MasterVolume.value = PlayerPrefs.GetFloat("SavedMasterVolume", 1.0f);
-        MusicVolume.value = PlayerPrefs.GetFloat("SavedMusicVolume", 1.0f);
-        SFXVolume.value = PlayerPrefs.GetFloat("SavedSFXVolume", 1.0f);
+        MasterVolume.value = PlayerPrefs.GetFloat("SavedMasterVolume", 0f);
+        MusicVolume.value = PlayerPrefs.GetFloat("SavedMusicVolume", 0f);
+        SFXVolume.value = PlayerPrefs.GetFloat("SavedSFXVolume", 0f);
 
         // Force the mixer to update to the loaded values
         ChangeMasterVolume();

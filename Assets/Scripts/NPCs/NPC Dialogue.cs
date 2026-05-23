@@ -39,8 +39,8 @@ public class NPCDialogue : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        CameraControl.uiOpen = true;
-        PlayerController.uiOpen = true;
+        cameraController.uiOpen = true; 
+        Player.uiOpen = true;
     }
 
     public void closeAll()
@@ -52,8 +52,8 @@ public class NPCDialogue : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        CameraControl.uiOpen = false;
-        PlayerController.uiOpen = false;
+        cameraController.uiOpen = false;
+        Player.uiOpen = false;
 
         npcInteraction.reactivatePrompt();
     }

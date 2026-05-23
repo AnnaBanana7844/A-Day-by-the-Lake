@@ -38,7 +38,7 @@ public class EnvironmentCtrl : MonoBehaviour
     {
         if (tutorialActive == false)//time only passes if the tutorial is done
         {
-            Debug.Log("updating");
+          
             cycleTimer += Time.deltaTime;
             DayNightCycle();
         }

@@ -453,6 +453,10 @@ PrefabInstance:
       propertyPath: fishingSystem
       value: 
       objectReference: {fileID: 1017768367}
+    - target: {fileID: 6787672967316665736, guid: e304262941d26b748ac61719e513f6aa, type: 3}
+      propertyPath: DeathUI
+      value: 
+      objectReference: {fileID: 1358597795}
     - target: {fileID: 8516064011164862666, guid: e304262941d26b748ac61719e513f6aa, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1128,6 +1132,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2528474148278301860, guid: 3ffdf7f63a7b5564aba289a62807819b, type: 3}
   m_PrefabInstance: {fileID: 80714376}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1358597795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2893844734911693348, guid: 57cd2ef56be16f247962524bbc238cb4, type: 3}
+  m_PrefabInstance: {fileID: 5433565811927323353}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3b6ee8deba79a48982046e68700bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeath
 --- !u!1 &1384199240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3653164491704976374, guid: 2e3dfc7ae875b054ca71de3e877d6e58, type: 3}
@@ -1552,9 +1567,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1587125574185218184, guid: b173f97dcf2ef2a4fa8048f3eb634d64, type: 3}
+      propertyPath: damageAmount
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587125574185218184, guid: b173f97dcf2ef2a4fa8048f3eb634d64, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 688271427}
     - target: {fileID: 3622029553756030504, guid: b173f97dcf2ef2a4fa8048f3eb634d64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.25
