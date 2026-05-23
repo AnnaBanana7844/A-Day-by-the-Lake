@@ -35,6 +35,14 @@ public class FishProgressController : MonoBehaviour
     [Header("Fish Table")]
     public FishData[] fishTable;
 
+    [Header("Fish Items")]
+    public FishItem commonFishItem;
+    public FishItem uncommonFishItem;
+    public FishItem rareFishItem;
+    public FishItem epicFishItem;
+    public FishItem legendaryFishItem;
+    public FishItem mythicalFishItem;
+
     private float progress = 20f;
     private FishData currentFish;
 
@@ -100,10 +108,40 @@ public class FishProgressController : MonoBehaviour
 
     private void fishCaught()
     {
+        FishItem caughtFishItem = null;
         caughtFishUI.SetActive(true);
         caughtFishText.text = "You caught a " + currentFish.fishName + "!";
 
-        if(currentFish.rarity == FishRarity.Mythical)
+        switch(currentFish.rarity)
+        {
+            case FishRarity.Common:
+                caughtFishItem = commonFishItem;
+                break;
+
+            case FishRarity.Uncommon:
+                caughtFishItem = uncommonFishItem;
+                break;
+
+            case FishRarity.Rare:
+                caughtFishItem = rareFishItem;
+                break;
+
+            case FishRarity.Epic:
+                caughtFishItem = epicFishItem;
+                break;
+
+            case FishRarity.Legendary:
+                caughtFishItem = legendaryFishItem;
+                break;
+
+            case FishRarity.Mythical:
+                caughtFishItem = mythicalFishItem;
+                break;
+        }
+
+        Inventory.instance.AddFish(caughtFishItem);
+
+        if (currentFish.rarity == FishRarity.Mythical)
         {
             audioSource.PlayOneShot(mythicalFishCatchSound);
         }
