@@ -8,7 +8,7 @@ public class cameraController : MonoBehaviour
     [SerializeField] int lockVertMin, lockVertMax;
     [SerializeField] bool invertY;
     [SerializeField] Transform player;
-    public static bool uiOpen = false;
+    //public static bool uiOpen = false;
 
     float camRotX;
 

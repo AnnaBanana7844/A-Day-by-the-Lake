@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/DevinsScripts/Materials.meta
+guid: cbd541881f8ed6844b822b725fdb0141
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+========
+guid: 27b5117e75b79fb4d9ffbf7c264db7c4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>>> origin/Dev:Assets/Scenes/PlayScene/Ground.mat.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
