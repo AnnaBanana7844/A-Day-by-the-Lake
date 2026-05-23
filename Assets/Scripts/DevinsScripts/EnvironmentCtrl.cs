@@ -38,7 +38,7 @@ public class EnvironmentCtrl : MonoBehaviour
     {
         if (tutorialActive == false)//time only passes if the tutorial is done
         {
-            
+          
             cycleTimer += Time.deltaTime;
             DayNightCycle();
         }
