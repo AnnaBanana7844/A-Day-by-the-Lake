@@ -47,12 +47,12 @@ public class SettingsMenu : MonoBehaviour
     }
   public void ChangeMusicVolume()
     {
-        SetMixerVolume("Music", MasterVolume.value);
-        PlayerPrefs.SetFloat("SavedMUsicVolume", MusicVolume.value);
+        SetMixerVolume("Music", MusicVolume.value);
+        PlayerPrefs.SetFloat("SavedMusicVolume", MusicVolume.value);
     }
   public void ChangeSFXVolume()
     {
-        SetMixerVolume("SFX", MasterVolume.value);
+        SetMixerVolume("SFX", SFXVolume.value);
         PlayerPrefs.SetFloat("SavedSFXVolume", SFXVolume.value);
     }
 
