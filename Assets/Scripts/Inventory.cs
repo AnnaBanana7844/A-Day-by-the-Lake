@@ -12,9 +12,19 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
-    public void AddFish(FishItem fish)
+    public void addFish(FishItem fish)
     {
         fishList.Add(fish);
         InventoryUI.instance.refreshUI();
+    }
+
+    public void removeFish(FishItem fish)
+    {
+        if (fishList.Contains(fish))
+        {
+            fishList.Remove(fish);
+            InventoryUI.instance.refreshUI();
+        }
+
     }
 }
