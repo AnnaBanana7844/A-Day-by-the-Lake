@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 1686207940889287951}
   - component: {fileID: 6787672967316665736}
   - component: {fileID: 5691181468819796174}
+  - component: {fileID: 235725138999386893}
   - component: {fileID: 5134942675472636074}
   m_Layer: 3
   m_Name: Player
@@ -726,6 +727,7 @@ MonoBehaviour:
   jumpV: 30
   jumpMax: 2
   gravity: 98
+  DeathUI: {fileID: 0}
 --- !u!114 &5691181468819796174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,6 +744,19 @@ MonoBehaviour:
   fishingSystem: {fileID: 0}
   pressEPrompt: {fileID: 0}
   isFishing: 0
+--- !u!114 &235725138999386893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516064011164862666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9bcd4e2c8500f340ad24d2791f9b980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCurrency
+  money: 0
 --- !u!143 &5134942675472636074
 CharacterController:
   m_ObjectHideFlags: 0
