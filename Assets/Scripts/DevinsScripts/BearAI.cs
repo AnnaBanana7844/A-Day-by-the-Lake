@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class Bear : MonoBehaviour
 {
     [Header("-----References-----")]
+    [SerializeField] Animator animator;
     [SerializeField] NavMeshAgent meshAgent;
     [SerializeField] Transform playerTrans;
 

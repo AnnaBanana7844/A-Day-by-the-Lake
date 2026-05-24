@@ -365,17 +365,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37d301dfe8e54e49b980e144ea14482, type: 3}
---- !u!114 &685476395 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2246127549581183542, guid: 2e3dfc7ae875b054ca71de3e877d6e58, type: 3}
-  m_PrefabInstance: {fileID: 727415564}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!114 &688271427 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6787672967316665736, guid: e304262941d26b748ac61719e513f6aa, type: 3}
@@ -1032,17 +1021,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 303791c3a6a73cb4795157908547bdfa, type: 3}
---- !u!114 &1657917266 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8825982158665031812, guid: 2e3dfc7ae875b054ca71de3e877d6e58, type: 3}
-  m_PrefabInstance: {fileID: 727415564}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1674957743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,17 +1251,6 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &1882527618 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7627985732102496207, guid: 2e3dfc7ae875b054ca71de3e877d6e58, type: 3}
-  m_PrefabInstance: {fileID: 727415564}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1886899765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,8 +1651,8 @@ SceneRoots:
   - {fileID: 5433565811927323353}
   - {fileID: 964034593099807667}
   - {fileID: 1781543677}
-  - {fileID: 1912203111}
   - {fileID: 450639138}
+  - {fileID: 1912203111}
   - {fileID: 1433777555}
   - {fileID: 2085897301}
   - {fileID: 727415564}
