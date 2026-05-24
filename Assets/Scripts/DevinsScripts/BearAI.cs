@@ -6,6 +6,7 @@ public class Bear : MonoBehaviour
 {
     [Header("-----References-----")]
     [SerializeField] Animator animator;
+    string currAnim;
     [SerializeField] NavMeshAgent meshAgent;
     [SerializeField] Transform playerTrans;
 
@@ -16,6 +17,8 @@ public class Bear : MonoBehaviour
     [Header("-----Roam-----")]
     [SerializeField] float roamDist = 2;//"roam distance" how far the bear can roam at once
     [SerializeField] float roamRad = 10;//"roam radius" roam range. kinda like a sphere
+    //[SerializeField] float roamPause = 1;//decides how long the bear pauses for when roaming
+    //float roamTimer;
     Vector3 currentPoint;
     bool hasPoint;
 
@@ -36,6 +39,7 @@ public class Bear : MonoBehaviour
 
     void Update()// Update is called once per frame
     {
+        //roamTimer += Time.deltaTime;
         DetectPlayer();
         if (visiblePlayer && playerInRange)
         {
@@ -45,6 +49,11 @@ public class Bear : MonoBehaviour
         else if (!visiblePlayer && !playerInRange)
         {
             //Debug.Log("Player not seen and not in range!");
+            //if((int)roamTimer >= roamPause)
+            //{ Roam(); }
+            //else
+            //{animator.play("Idle")}
+
             Roam();
         }
         else if (visiblePlayer && !playerInRange)
@@ -54,6 +63,14 @@ public class Bear : MonoBehaviour
         }
     }
 
+    void ChangeAnim(string animation)
+    {
+        if (currAnim != animation)
+        {
+            currAnim = animation;
+            animator.Play(animation);
+        }
+    }
     private void OnDrawGizmosSelected()//this is so helpful!! now I can use this method to visualize different ranges
     {
         Gizmos.color = Color.red;
@@ -74,7 +91,7 @@ public class Bear : MonoBehaviour
         meshAgent.SetDestination(transform.position);//stop
         if (playerTrans != null)
         {
-            transform.LookAt(playerTrans.position);//face player. yet another helpful command!
+            transform.LookAt(/*playerTrans.position*/new Vector3(playerTrans.localPosition.x, playerTrans.localPosition.y, 0));//face player. yet another helpful command!
         }
         if (onCooldown == false && playerInRange)
         {
