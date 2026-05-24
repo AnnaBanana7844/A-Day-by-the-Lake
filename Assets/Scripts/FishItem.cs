@@ -5,6 +5,5 @@ public class FishItem : ScriptableObject
 {
     public string fishName;
     public int value;
-
 }
 
