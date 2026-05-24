@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryPanel;
     public Transform contentParent;
     public GameObject fishSlotPrefab;
+    public GameObject text;
 
     void Awake()
     {
@@ -33,10 +34,14 @@ public class InventoryUI : MonoBehaviour
         inventoryPanel.SetActive(active);
 
         Player.uiOpen = active;
+        cameraController.uiOpen = active;
         Cursor.visible = active;
         Cursor.lockState = active ? CursorLockMode.None : CursorLockMode.Locked;
 
         if (active)
             refreshUI();
+       
+
+          
     }
 }
