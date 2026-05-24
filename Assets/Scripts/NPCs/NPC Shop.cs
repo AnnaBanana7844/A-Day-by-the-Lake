@@ -10,7 +10,6 @@ public class NPCShop : MonoBehaviour
     }
 
 
-
     [System.Serializable]
     public class ShopItem
     {

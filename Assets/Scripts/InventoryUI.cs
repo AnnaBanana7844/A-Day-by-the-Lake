@@ -40,8 +40,5 @@ public class InventoryUI : MonoBehaviour
 
         if (active)
             refreshUI();
-       
-
-          
     }
 }
