@@ -726,6 +726,7 @@ MonoBehaviour:
   jumpV: 30
   jumpMax: 2
   gravity: 98
+  DeathUI: {fileID: 0}
 --- !u!114 &5691181468819796174
 MonoBehaviour:
   m_ObjectHideFlags: 0
