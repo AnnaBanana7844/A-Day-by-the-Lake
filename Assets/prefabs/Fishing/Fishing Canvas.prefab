@@ -483,12 +483,12 @@ MonoBehaviour:
     minZoneSize: 15
     maxZoneSize: 15
     fishValue: 1000000
-  commonFishItem: {fileID: 11400000, guid: bea6fa09fb5728948a1f0e68d2bf1f82, type: 2}
+  commonFishItem: {fileID: 11400000, guid: 6ac017b76f8d0154fba7bd32d9a53ae1, type: 2}
   uncommonFishItem: {fileID: 11400000, guid: a676bc6b7205a7d4c848e56fbd2d4738, type: 2}
   rareFishItem: {fileID: 11400000, guid: 285484df5ba95634eb5f2a4bd01b035b, type: 2}
-  epicFishItem: {fileID: 11400000, guid: 6c431bb7347e12c44b2c1beeea1e2c3d, type: 2}
-  legendaryFishItem: {fileID: 11400000, guid: 829511a6d33a6314eb114074382a3b46, type: 2}
-  mythicalFishItem: {fileID: 11400000, guid: 021bacfaf52526f42a08bf782bbac106, type: 2}
+  epicFishItem: {fileID: 11400000, guid: 9ee17d3255b0c7349a01902afca86f66, type: 2}
+  legendaryFishItem: {fileID: 11400000, guid: 83157d33866af724ea14c16004422960, type: 2}
+  mythicalFishItem: {fileID: 11400000, guid: 058bed1a2edddb74680c6b17a2543505, type: 2}
 --- !u!114 &6052377849198203349
 MonoBehaviour:
   m_ObjectHideFlags: 0

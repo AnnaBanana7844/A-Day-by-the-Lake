@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 4397054352762667862}
   contentParent: {fileID: 8410469689759162714}
-  fishSlotPrefab: {fileID: 1971454266620747992, guid: 0c799717ce8018c4f924afe4aa5ec6ab, type: 3}
+  fishSlotPrefab: {fileID: 1971454266620747992, guid: 6c2c465f1271dae43ada16626363373b, type: 3}
   text: {fileID: 5757656061635864377}
 --- !u!1 &562747685192711962
 GameObject:
@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SellMenuUI
   sellMenuPanel: {fileID: 8286189283679796554}
   sellContentParent: {fileID: 2455787936820255233}
-  sellSlotPrefab: {fileID: 6613376841158729133, guid: 77a48c2cd1c8e9d41a97258626099907, type: 3}
+  sellSlotPrefab: {fileID: 6613376841158729133, guid: ec4d4e89f6b23b542aec27a82c0c4f1a, type: 3}
   moneyText: {fileID: 8286130282297260915}
 --- !u!1 &1846942985205933582
 GameObject:
