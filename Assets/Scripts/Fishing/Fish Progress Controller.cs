@@ -139,7 +139,7 @@ public class FishProgressController : MonoBehaviour
                 break;
         }
 
-        Inventory.instance.AddFish(caughtFishItem);
+        Inventory.instance.addFish(caughtFishItem);
 
         if (currentFish.rarity == FishRarity.Mythical)
         {

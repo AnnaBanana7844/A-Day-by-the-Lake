@@ -41,7 +41,7 @@ AudioSource:
   m_GameObject: {fileID: 147047346796788817}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8561426953229145716, guid: 8480f890a2f3fa545b7fefe4edb8457c, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 144178f78f6f66d4e976535d0be39788, type: 3}
   m_PlayOnAwake: 0
@@ -170,7 +170,7 @@ AudioSource:
   m_GameObject: {fileID: 2382027534033704058}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8561426953229145716, guid: 8480f890a2f3fa545b7fefe4edb8457c, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 84ed1af5a0db2bc4cb5af3066f214399, type: 3}
   m_PlayOnAwake: 0
@@ -299,7 +299,7 @@ AudioSource:
   m_GameObject: {fileID: 3453907021143579216}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8561426953229145716, guid: 8480f890a2f3fa545b7fefe4edb8457c, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 15d58940731b0024b89645ef863908e6, type: 3}
   m_PlayOnAwake: 0
@@ -439,5 +439,5 @@ MonoBehaviour:
   menuMusic: {fileID: 5477669147294786612}
   dayMusic: {fileID: 4428666973834738626}
   nightMusic: {fileID: 9011194017582632552}
-  dayTimer: 5
-  nightTimer: 5
+  dayTimer: 3
+  nightTimer: 3
