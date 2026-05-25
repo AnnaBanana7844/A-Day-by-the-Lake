@@ -8,7 +8,6 @@ public class NPCDialogue : MonoBehaviour
     
     public GameObject dialoguePanel;
     public GameObject shopPanel;
-    public NPCShop shop;
     public GameObject dialogueOptionsPanel;
     public GameObject textBoxPanel;
     public TMP_Text dialogueText;
@@ -68,7 +67,6 @@ public class NPCDialogue : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         shopPanel.SetActive(true);
-        shop.openShop();
     }
 
     public void onBack()

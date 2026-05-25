@@ -9,7 +9,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryPanel;
     public Transform contentParent;
     public GameObject fishSlotPrefab;
-    public GameObject text;
+    public TMP_Text moneyText;
 
     void Awake()
     {
@@ -33,6 +33,7 @@ public class InventoryUI : MonoBehaviour
         bool active = !inventoryPanel.activeSelf;
         inventoryPanel.SetActive(active);
 
+        moneyText.text = "$" + PlayerCurrency.instance.money;
         Player.uiOpen = active;
         cameraController.uiOpen = active;
         Cursor.visible = active;
@@ -40,8 +41,5 @@ public class InventoryUI : MonoBehaviour
 
         if (active)
             refreshUI();
-       
-
-          
     }
 }
