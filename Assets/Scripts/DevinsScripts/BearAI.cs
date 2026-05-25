@@ -60,6 +60,7 @@ public class Bear : MonoBehaviour
         else if (visiblePlayer && !playerInRange)
         {
             //Debug.Log("Player seen and not in range!");
+            if(currAnim != "Run") { currAnim = "Run"; animator.Play("Run"); }
             Pursue();
         }
         

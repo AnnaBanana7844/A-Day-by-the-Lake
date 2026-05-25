@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [Header("-----Stats-----")]
 
     int fishCount;//how many fish the player currently has
+    public int partCount;//how many bus parts player has
 
     [SerializeField] float hp;//player's base hp
     float currentHP;//how much hp the player currently has
@@ -148,5 +149,10 @@ public class Player : MonoBehaviour
     public void AlterFish(int value)//alters the health of the player
     {
         fishCount += value;
+    }
+
+    public void AlterParts(int value)//alters the health of the player
+    {
+        partCount += value;
     }
 }
