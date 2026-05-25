@@ -9,6 +9,7 @@ public class ShopMenuUI : MonoBehaviour
     public GameObject shopMenuPanel;
     public Transform shopContentParent;
     public GameObject shopSlotPrefab;
+    public TMP_Text moneyText;
 
     private ShopInventory currentShop;
 
@@ -17,27 +18,30 @@ public class ShopMenuUI : MonoBehaviour
         instance = this;
     }
 
-    public void OpenShop(ShopInventory shop)
+    public void openShop(ShopInventory shop)
     {
+        moneyText.text = "$" + PlayerCurrency.instance.money;
         currentShop = shop;
-        RefreshUI();
+        refreshUI();
         shopMenuPanel.SetActive(true);
 
+        cameraController.uiOpen = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Player.uiOpen = true;
     }
 
-    public void CloseShop()
+    public void closeShop()
     {
         shopMenuPanel.SetActive(false);
 
+        cameraController.uiOpen = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Player.uiOpen = false;
     }
 
-    public void RefreshUI()
+    public void refreshUI()
     {
         foreach (Transform child in shopContentParent)
             Destroy(child.gameObject);
@@ -49,22 +53,23 @@ public class ShopMenuUI : MonoBehaviour
             slot.transform.Find("Name").GetComponent<TMP_Text>().text = item.itemName;
             slot.transform.Find("Price").GetComponent<TMP_Text>().text = "$" + item.price;
 
-            slot.transform.Find("BuyButton").GetComponent<Button>().onClick.AddListener(() =>
+            slot.GetComponent<Button>().onClick.AddListener(() =>
             {
-                TryBuyItem(item);
+                tryBuyItem(item);
             });
         }
     }
 
-    private void TryBuyItem(ShopItem item)
+    private void tryBuyItem(ShopItem item)
     {
         if (PlayerCurrency.instance.money >= item.price)
         {
             PlayerCurrency.instance.money -= item.price;
+            moneyText.text = "$" + PlayerCurrency.instance.money;
 
             Debug.Log("Bought: " + item.itemName);
 
-            // Later: give the item to the player
+            // give the item to the player
         }
         else
         {
