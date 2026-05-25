@@ -19,12 +19,13 @@ public class SellMenuUI : MonoBehaviour
 
     public void OpenSellMenu()
     {
+        moneyText.text = "$" + PlayerCurrency.instance.money;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Player.uiOpen = true;
         cameraController.uiOpen = true;
 
-        RefreshUI();
+        refreshUI();
         sellMenuPanel.SetActive(true);
     }
 
@@ -37,7 +38,7 @@ public class SellMenuUI : MonoBehaviour
         sellMenuPanel.SetActive(false);
     }
 
-    public void RefreshUI()
+    public void refreshUI()
     {
         foreach (Transform child in sellContentParent)
             Destroy(child.gameObject);
@@ -52,16 +53,16 @@ public class SellMenuUI : MonoBehaviour
            
             slot.GetComponent<Button>().onClick.AddListener(() =>
             {
-                SellFish(fish);
+                sellFish(fish);
             });
         }
     }
 
-    public void SellFish(FishItem fish)
+    public void sellFish(FishItem fish)
     {
         PlayerCurrency.instance.addMoney(fish.value);
         Inventory.instance.removeFish(fish);
         moneyText.text = "$" + PlayerCurrency.instance.money;
-        RefreshUI();
+        refreshUI();
     }
 }
