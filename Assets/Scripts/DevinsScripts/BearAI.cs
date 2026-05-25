@@ -21,6 +21,7 @@ public class Bear : MonoBehaviour
     //float roamTimer;
     Vector3 currentPoint;
     bool hasPoint;
+    bool moving;
 
     [Header("-----Attack-----")]
     [SerializeField] float attackCooldown;
@@ -53,7 +54,7 @@ public class Bear : MonoBehaviour
             //{ Roam(); }
             //else
             //{animator.play("Idle")}
-
+            if(currAnim != "Run") { currAnim = "Run"; animator.Play("Run"); }
             Roam();
         }
         else if (visiblePlayer && !playerInRange)
@@ -61,16 +62,17 @@ public class Bear : MonoBehaviour
             //Debug.Log("Player seen and not in range!");
             Pursue();
         }
+        
     }
 
-    void ChangeAnim(string animation)
-    {
-        if (currAnim != animation)
-        {
-            currAnim = animation;
-            animator.Play(animation);
-        }
-    }
+    //void ChangeAnim(string animation)
+    //{
+    //    if (currAnim != animation)
+    //    {
+    //        currAnim = animation;
+    //        animator.Play(animation);
+    //    }
+    //}
     private void OnDrawGizmosSelected()//this is so helpful!! now I can use this method to visualize different ranges
     {
         Gizmos.color = Color.red;
@@ -88,6 +90,9 @@ public class Bear : MonoBehaviour
     void Attack()
     {
         //Debug.Log("Bear Attacking!");
+        //moving = false;
+        currAnim = "Attack";
+        animator.Play("Attack");
         meshAgent.SetDestination(transform.position);//stop
         if (playerTrans != null)
         {
