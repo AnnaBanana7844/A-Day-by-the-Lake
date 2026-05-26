@@ -8,10 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] CharacterController chrController;
     [SerializeField] GameObject hpBar;
     [SerializeField] GameObject fishingPole;
+    [SerializeField] Animator animator;
+    string currAnim;
 
     [Header("-----Stats-----")]
 
     int fishCount;//how many fish the player currently has
+    public int partCount;//how many bus parts player has
 
     [SerializeField] float hp;//player's base hp
     float currentHP;//how much hp the player currently has
@@ -22,7 +25,9 @@ public class Player : MonoBehaviour
     [SerializeField] int jumpMax;//how many times is the player allowed to jump before touching the ground
     [SerializeField] int gravity;//how fast you come back down when you jump
 
-
+    bool sprinting;
+    bool walking;
+    bool idle;
 
 
     //controls whether the player is in the air, or gravity is pulling them down
@@ -58,10 +63,27 @@ public class Player : MonoBehaviour
 
         Movement();
         Sprint();
+        CheckAnim();
     }
+    void CheckAnim()
+    {
+        if (walking == true && sprinting == false)
+        {
+            if (currAnim != "Walk") { animator.Play("Walk"); currAnim = "Walk"; }
+        }
+        if (sprinting == true)
+        {
+            if (currAnim != "Run") { animator.Play("Run"); currAnim = "Run"; Debug.Log("sprinting"); }
+        }
+        else if (idle == true || sprinting == false && walking == false)
+        {
+            if (currAnim != "Idle") { animator.Play("Idle"); currAnim = "Idle"; Debug.Log("idle"); }
+        }
 
+    }
     void Movement()
     {
+
         if (chrController.isGrounded)
         {
             jumpCount = 0;
@@ -72,6 +94,9 @@ public class Player : MonoBehaviour
         moveD = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
         chrController.Move(moveD.normalized * walkSpeed * Time.deltaTime);
 
+        if (moveD.y != 0 || moveD.x != 0) { idle = false; walking = true; } else { idle = true; walking = false; }
+        ;
+
         Jump();
         GetPole();
         chrController.Move(playerV * Time.deltaTime);
@@ -81,12 +106,15 @@ public class Player : MonoBehaviour
 
     void Sprint()
     {
+
         if (Input.GetButtonDown("Sprint"))
         {
+            sprinting = true;
             walkSpeed *= sprint;
         }
         else if (Input.GetButtonUp("Sprint"))
         {
+            sprinting = false;
             walkSpeed /= sprint; // to do hold to sprint
         }
     }
@@ -94,6 +122,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
         {
+            //jumping = true;
             playerV.y = jumpV;
             jumpCount++;
         }
@@ -121,5 +150,10 @@ public class Player : MonoBehaviour
     public void AlterFish(int value)//alters the health of the player
     {
         fishCount += value;
+    }
+
+    public void AlterParts(int value)//alters the health of the player
+    {
+        partCount += value;
     }
 }
