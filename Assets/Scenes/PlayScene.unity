@@ -11001,6 +11001,18 @@ PrefabInstance:
       propertyPath: pressEPrompt
       value: 
       objectReference: {fileID: 748667951}
+    - target: {fileID: 8638256976392032549, guid: bd6b543092f3862448c775365a218825, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638256976392032549, guid: bd6b543092f3862448c775365a218825, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638256976392032549, guid: bd6b543092f3862448c775365a218825, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
