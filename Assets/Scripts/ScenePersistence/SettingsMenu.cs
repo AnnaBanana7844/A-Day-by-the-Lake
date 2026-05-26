@@ -8,13 +8,13 @@ public class SettingsMenu : MonoBehaviour
 
     // Settings Data Members
    [SerializeField] public TMP_Dropdown Graphics;
-    [SerializeField] public Slider MasterVolume, MusicVolume, SFXVolume;
+    [SerializeField] public Slider MasterVolume, MusicVolume, SFXVolume, sensitivity;
     [SerializeField] public AudioMixer SettingsMixer;
 
     private const string masterVolumeKey = "SavedMasterVolume";
 
     //set minimum value for slider to dodge log0 errors
-    private float minMasterVolume = 0.0001f;
+    private float minMasterVolume = -80f;
 
 
     private void Start()
@@ -24,10 +24,13 @@ public class SettingsMenu : MonoBehaviour
         MusicVolume.value = PlayerPrefs.GetFloat("SavedMusicVolume", 0f);
         SFXVolume.value = PlayerPrefs.GetFloat("SavedSFXVolume", 0f);
 
+        sensitivity.value = PlayerPrefs.GetFloat("Sensitivity", 10f);
         // Force the mixer to update to the loaded values
+
         ChangeMasterVolume();
         ChangeMusicVolume();
         ChangeSFXVolume();
+        ChangeSensitivity();
     }
 
 
@@ -64,6 +67,9 @@ public class SettingsMenu : MonoBehaviour
 
     }
 
+    private void ChangeSensitivity()
+    {
 
+    }
 
 }
