@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         currentHP = hp;
         fishingPole.SetActive(false);
         hasPole = false;
-
+        partCount = 0;
     }
 
     // Update is called once per frame
