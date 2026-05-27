@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class Bus : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] SphereCollider activeField;
+    [SerializeField] int partThresh;//"part threshold" how many bus parts player needs for win condition
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (EnvironmentCtrl.Game.player.partCount >= partThresh)
+        {
+            Debug.Log("you win!!");
+            GameManager.instance.statePause();
+        }
     }
 }
