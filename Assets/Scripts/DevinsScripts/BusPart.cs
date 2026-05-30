@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class BusPart : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] GameObject model;
+    [SerializeField] SphereCollider aoe;//"area of effect"  when youre in here you get the part
+ 
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        EnvironmentCtrl.Game.player.AlterParts(1);
+        GameManager.instance.UpdateGameGoal(1);
+        Destroy(model);
+        Debug.Log(EnvironmentCtrl.Game.player.partCount);
     }
 }

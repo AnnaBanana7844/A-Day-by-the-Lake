@@ -6,6 +6,7 @@ public class EnvironmentCtrl : MonoBehaviour
     public static EnvironmentCtrl Game;//game manager singleton
     [SerializeField] public Player player;
     [SerializeField] public Bear bear;
+    [SerializeField] public Bus bus;
 
     [Header("-----Music-----")]
     [SerializeField] AudioSource menuMusic;//music that plays on specifically the main menu
@@ -30,7 +31,7 @@ public class EnvironmentCtrl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        player.partCount = 0;
     }
 
     // Update is called once per frame

@@ -434,10 +434,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf34e9a370de904a8296c400e4e0cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentCtrl
-  player: {fileID: 0}
-  bear: {fileID: 0}
+  player: {fileID: 4212265377146818290, guid: 16af8df0e9398a14ba4640b2099484f2, type: 3}
+  bear: {fileID: 6209536125338266629, guid: 2e66d451666723b4cbe51b51a802eb87, type: 3}
+  bus: {fileID: 8858932094250632296, guid: ff4c66e94b47a46498558932ee011a79, type: 3}
   menuMusic: {fileID: 5477669147294786612}
   dayMusic: {fileID: 4428666973834738626}
   nightMusic: {fileID: 9011194017582632552}
-  dayTimer: 3
-  nightTimer: 3
+  dayTimer: 180
+  nightTimer: 260
