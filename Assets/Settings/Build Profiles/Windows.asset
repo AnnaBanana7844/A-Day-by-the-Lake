@@ -20,8 +20,12 @@ MonoBehaviour:
     rid: 8360139266933653563
   m_OverrideGlobalSceneList: 1
   m_Scenes:
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Scenes/Rich Scene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/PlayScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/MainMenu.unity
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
