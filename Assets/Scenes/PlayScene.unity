@@ -589,6 +589,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1475217942580861508, guid: e0225fa867c6bd84392de743f9f70663, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250188505960832345, guid: e0225fa867c6bd84392de743f9f70663, type: 3}
+      propertyPath: m_CullTransparentMesh
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5857932559402150087, guid: e0225fa867c6bd84392de743f9f70663, type: 3}
@@ -702,6 +706,10 @@ PrefabInstance:
     - target: {fileID: 7938299519933375456, guid: e0225fa867c6bd84392de743f9f70663, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838534808378971340, guid: e0225fa867c6bd84392de743f9f70663, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13209,6 +13217,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2709505665443918866, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2728033586951848009, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
       propertyPath: m_text
       value: 'Bus Parts '
@@ -13241,10 +13253,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4397054352762667862, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5597993252376072726, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
       propertyPath: fishSlotPrefab
       value: 
       objectReference: {fileID: 1971454266620747992, guid: 37c1d0f6adfbe5442a5429998b93a00e, type: 3}
+    - target: {fileID: 5688340038212321680, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_margin.x
+      value: -212.59424
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688340038212321680, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_margin.z
+      value: -212.70386
+      objectReference: {fileID: 0}
     - target: {fileID: 5753155349005205382, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
       propertyPath: menuLose
       value: 
@@ -13265,7 +13289,27 @@ PrefabInstance:
       propertyPath: sellSlotPrefab
       value: 
       objectReference: {fileID: 6613376841158729133, guid: 1fa675fe31c7e0b419ea3cbda385dc8b, type: 3}
+    - target: {fileID: 7281466473572936498, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_margin.x
+      value: -178.37708
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281466473572936498, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_margin.z
+      value: -177.05676
+      objectReference: {fileID: 0}
     - target: {fileID: 8014262248881906186, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286130282297260915, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_margin.x
+      value: -171.53833
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286130282297260915, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
+      propertyPath: m_margin.z
+      value: -172.20386
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286189283679796554, guid: 38eec552f9b8e42418a94e06ebb87740, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
