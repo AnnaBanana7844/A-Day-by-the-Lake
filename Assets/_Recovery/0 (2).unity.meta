@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/_Recovery/0 (2).unity.meta
 guid: edfe001fe04f8b147b6941dba0ec4ce0
 DefaultImporter:
+========
+guid: 0a1a1b27b1e01af4f99408e378ec8402
+PrefabImporter:
+>>>>>>>> Stashed changes:Assets/prefabs/Terrain.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
