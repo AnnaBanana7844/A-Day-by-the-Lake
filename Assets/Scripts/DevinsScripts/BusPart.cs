@@ -7,6 +7,7 @@ public class BusPart : MonoBehaviour
  
     private void OnTriggerEnter(Collider other)
     {
+        
         EnvironmentCtrl.Game.player.AlterParts(1);
         GameManager.instance.UpdateGameGoal(1);
         Destroy(model);

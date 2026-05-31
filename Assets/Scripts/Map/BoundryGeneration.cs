@@ -3,7 +3,7 @@ using UnityEngine;
 public class BoundryGeneration : MonoBehaviour
 {
 
-    public float height = 10f;
+    public float height = 1000f;
     public float thickness = .5f;
 
 
