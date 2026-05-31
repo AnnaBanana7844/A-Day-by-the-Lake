@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/StartScene.unity
     guid: 42787b8d39d0cc2408626b479f67473b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Rich Scene.unity
     guid: 3fd237cf5646bec418ad538dbda5c8f0
   - enabled: 1
