@@ -43,13 +43,31 @@ public class EnvironmentCtrl : MonoBehaviour
             cycleTimer += Time.deltaTime;
             DayNightCycle();
         }
-        if (Input.GetButtonUp("Cancel"))
-        {
-            MenuActive();
-        }
         //Debug.Log(cycleTimer);
+        MusicManagement();
     }
-
+    void MusicManagement()
+    {
+        if(GameManager.instance.isPaused == true && currentMusic != menuMusic)
+        {
+            Debug.Log("menu Music");
+            if (currentMusic != null) { currentMusic.Stop(); }
+            currentMusic = menuMusic;
+            currentMusic.Play();
+        }
+        else if(DON == true && GameManager.instance.isPaused == false && currentMusic != dayMusic)//if its day, the game is unpaused, and day music aint playin
+        {
+            if (currentMusic != null) { currentMusic.Stop(); }
+            currentMusic = dayMusic;
+            currentMusic.Play();
+        }
+        else if(DON == false && GameManager.instance.isPaused == false && currentMusic != nightMusic)//if its day, the game is unpaused, and night music aint playin
+        {
+            if (currentMusic != null) { currentMusic.Stop(); }
+            currentMusic = nightMusic;
+            currentMusic.Play();
+        }
+    }
     void DayNightCycle()
     {
         
@@ -57,18 +75,10 @@ public class EnvironmentCtrl : MonoBehaviour
         //every time the timer reaches the correct integer in seconds(nightTimer if its night, opposite if day), switch the active day
         if ((int)cycleTimer == dayTimer && DON == true)//if it's currently day and the daytime has ended
         {
-            //Debug.Log("Night");
-            //when day is over
-            //we want night music to play
-            //we also want to change the skybox
             NightActive();
         }
         if ((int)cycleTimer == nightTimer && DON == false)//if it's currently night and if the nighttime has ended
         {
-            //Debug.Log("Day");
-            //when night is over
-            //we want day music to play
-            //we also want to change the skybox back
             DayActive();
         }
     }
@@ -76,9 +86,6 @@ public class EnvironmentCtrl : MonoBehaviour
     {
         Debug.Log("Day Active");
         cycleTimer = 0;
-        if(currentMusic!=null){ currentMusic.Stop(); }
-        currentMusic = dayMusic;
-        currentMusic.Play();
         DON = true;
     }
 
@@ -86,15 +93,6 @@ public class EnvironmentCtrl : MonoBehaviour
     {
         Debug.Log("Night Active");
         cycleTimer = 0;
-        if (currentMusic != null) { currentMusic.Stop(); }
-        currentMusic = nightMusic;
-        currentMusic.Play();
         DON = false;
-    }
-    public void MenuActive()
-    {
-        if (currentMusic != null) { currentMusic.Stop(); }
-        currentMusic = menuMusic;
-        currentMusic.Play();
     }
 }
