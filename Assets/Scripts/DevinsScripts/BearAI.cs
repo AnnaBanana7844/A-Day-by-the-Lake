@@ -33,6 +33,7 @@ public class Bear : MonoBehaviour
     [SerializeField] float engagementRange = 5;
     bool visiblePlayer;
     bool playerInRange;
+    float targetFacingSpeed = 1;
 
 
     //void Start()// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -97,6 +98,7 @@ public class Bear : MonoBehaviour
         meshAgent.SetDestination(transform.position);//stop
         if (playerTrans != null)
         {
+            //RotateToTarget();
             transform.LookAt(/*playerTrans.position*/new Vector3(playerTrans.localPosition.x, playerTrans.localPosition.y, 0));//face player. yet another helpful command!
         }
         if (onCooldown == false && playerInRange)
@@ -142,6 +144,12 @@ public class Bear : MonoBehaviour
         {
             hasPoint = false;
         }
+    }
+
+    void RotateToTarget()//complete
+    {
+        Quaternion rot = Quaternion.LookRotation(new Vector3(playerTrans.localPosition.x, 0, playerTrans.localPosition.z));
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * targetFacingSpeed);
     }
 
     void Pursue()
